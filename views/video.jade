@@ -1,0 +1,67 @@
+extends layout
+
+block content
+  
+	#video-container
+		video#video-player.video-js.vjs-default-skin.vjs-big-play-centered(src=fileurl, controls, preload="auto", data-setup='{ "plugins": { "zoomrotate": { "rotate": "90", "zoom": "1.5" } } }', style='width: 100%')
+		span Rotate the video with buttons 
+		button#pane-landscape-left.btn.btn-link
+			i.fa.fa-picture-o.fa-2x.fa-inverse
+		button#pane-portrait-up.btn.btn-link
+			i.fa.fa-picture-o.fa-rotate-90.fa-2x.fa-inverse
+		button#pane-landscape-right.btn.btn-link
+			i.fa.fa-picture-o.fa-rotate-180.fa-2x.fa-inverse
+		button#pane-portrait-down.btn.btn-link
+			i.fa.fa-picture-o.fa-rotate-270.fa-2x.fa-inverse
+
+	link(rel='stylesheet', href='http://vjs.zencdn.net/4.4/video-js.css')
+	script(src="http://vjs.zencdn.net/4.4/video.js")
+	script(src='/js/videojs.zoomrotate.js')
+	script(type='text/javascript').
+		$(function(){
+			var video = videojs('video-player');
+			$("#pane-landscape-left").click(function() {
+				video.zoomrotate({
+					rotate: 0,
+					zoom: 1.0
+				});
+			});
+			$("#pane-landscape-right").click(function() {
+				video.zoomrotate({
+					rotate: 180,
+					zoom: 1.0
+				});
+			});
+			$("#pane-portrait-up").click(function() {
+				video.zoomrotate({
+					rotate: 90,
+					zoom: 1.0
+				});
+			});
+			$("#pane-portrait-down").click(function() {
+				video.zoomrotate({
+					rotate: 270,
+					zoom: 1.0
+				});
+			});
+			
+			var resizeVideoPlayer = function() {
+				$("#video-container").height($(document).height());
+				$("#video-container").width($(document).width());
+				$("#video-player").height($("#video-container").height()-40);
+				$("#video-player").width($("#video-container").width());
+				$("body").css("padding", "0");
+			};
+			
+			$(document).ready(function() {
+				resizeVideoPlayer();
+			});
+			
+			// for the window resize
+			$(window).resize(function() {
+				resizeVideoPlayer();
+			});
+		});
+		
+
+		

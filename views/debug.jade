@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  
+	.container-fluid
+		h1= DEBUG
+		each val in ids
+			li file id #{val}        
+				a(href='/download/' + val) Download  
+				| |
+				a(href='/view/' + val)   View 
+

@@ -1,0 +1,55 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#drop-box {
+	width: inherit;
+	height: inherit;
+	border: dashed 7px #AAA;
+	border-radius: 40px;
+	display: table-cell;
+	vertical-align:middle;
+}
+
+#drop-box > p {
+	margin:0 10px;
+	border:1px solid #fff;
+	display: block;
+	vertical-align:middle;
+	text-align:center;
+}
+
+#drop-box-parent {
+	width:320px;
+	height: 150px;
+}
+
+#video-container {
+
+}
+#video-container {
+	top:0%;
+	left:0%;
+	height:100%;
+	width:100%;
+	background-color: black;
+}
+#video-container span {
+	margin-left: 10px;
+	maring-right: 10px;
+	color: white;
+	font-family: arial;
+} 
+video {
+	position:absolute;
+	z-index:0;
+}
+video.fillWidth {
+	width: 100%;
+}

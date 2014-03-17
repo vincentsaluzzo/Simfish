@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+		i.fa.fa-picture-o
+  
+	.container-fluid
+		form.dropzone#my-drop-zone(style='', action='/upload')		
+		br
+		button#upload-file.btn.btn-lg.btn-block.btn-primary(disabled="disabled") Upload it !
+
+
+	#modal-complete.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
+		.modal-dialog.modal-sm
+			.modal-content
+				.modal-header: h3 Your file has been uploaded to Simfish host !
+					button.close(data-dismiss="modal", aria-hidden="true") &times;
+				.modal-body.
+					The file id is <a href="#" id="modal-complete-link">the link</a>
+					
+				//.modal-footer
+					//.btn.btn-primary.btn-block Close
+				
+
+	script(src='/js/main.js')
+
+		
