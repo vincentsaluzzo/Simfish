@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.multipart());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser('azertyuio'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, '/public')));

@@ -23,7 +23,7 @@ exports.index = function(req, res){
 exports.upload = function(req, res) {
 	
 	var file = req.files.file;
-	console.log(JSON.stringify(file, null, '\t'));
+	//console.log(JSON.stringify(file, null, '\t'));
 	var filename = file.originalFilename;
 	var timestamp = new Date().toISOString();
 	var toHash = filename + timestamp;
@@ -35,7 +35,7 @@ exports.upload = function(req, res) {
 	var saveFolder = __dirname + "/../uploads/";
 	
 	fs.mkdir(saveFolder, function(err) {
-		console.log(JSON.stringify(err));
+		//console.log(JSON.stringify(err));
 		if(err && err.code != "EEXIST") throw err;
 		else {
 			var savePath = path.normalize(saveFolder + filenameHashed);
@@ -98,7 +98,7 @@ exports.view = function(req, res) {
 			res.send(404);
 			return;
 		}
-		console.log(JSON.stringify(doc, null, '\t'));
+		//console.log(JSON.stringify(doc, null, '\t'));
 		var fileurl = "/download/"+id;
 		
 		if(doc.type.startsWith("video")) {
@@ -121,7 +121,7 @@ exports.debug = function(req, res) {
 			id.push(docs[index]._id);
 		}
 		
-		console.log(JSON.stringify(docs, null, '\t'));
+		//console.log(JSON.stringify(docs, null, '\t'));
 		res.render('debug', {ids : id});
 	});
 };
