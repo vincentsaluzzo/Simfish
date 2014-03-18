@@ -42,9 +42,9 @@ $(function(){
 				$("#modal-complete").modal();
 				myDropzone.removeAllFiles();
 				
-				
-				$("#modal-complete-link").text(responseText);
-				$("#modal-complete-link").attr("href", "/download/" + responseText);
+				$("#modal-complete-download-link").text(responseText);
+				$("#modal-complete-download-link").attr("href", "/download/" + responseText);
+				$("#modal-complete-show-link").attr("href", "/view/" + responseText);
 				
 				
 				//file.previewTemplate.appendChild(document.createTextNode(responseText));

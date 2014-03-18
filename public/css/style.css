@@ -53,3 +53,10 @@ video {
 video.fillWidth {
 	width: 100%;
 }
+
+#download-video {
+	color: white;
+}
+#download-video i {
+	margin-left: 10px;
+} 

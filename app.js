@@ -22,6 +22,7 @@ app.use(express.multipart({limit: '1024mb'}));
 app.use(express.methodOverride());
 app.use(express.cookieParser('azertyuio'));
 app.use(express.session());
+app.use(express.compress());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, '/public')));
 

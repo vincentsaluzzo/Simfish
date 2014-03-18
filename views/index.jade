@@ -12,10 +12,11 @@ block content
 	#modal-complete.modal.fade(tabindex="-1" role="dialog" aria-hidden="true")
 		.modal-dialog.modal-sm
 			.modal-content
-				.modal-header: h3 Your file has been uploaded to Simfish host !
+				.modal-header: h3 Your file has been uploaded to Simfish !
 					button.close(data-dismiss="modal", aria-hidden="true") &times;
-				.modal-body.
-					The file id is <a href="#" id="modal-complete-link">the link</a>
+				.modal-body
+					p The file id is <a href="#" id="modal-complete-download-link">the link</a>
+					p You can show this file directly with this <a href="#" id="modal-complete-show-link">link</a>
 					
 				//.modal-footer
 					//.btn.btn-primary.btn-block Close
