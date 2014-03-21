@@ -102,14 +102,12 @@ exports.view = function(req, res) {
 		var fileurl = "/download/"+id;
 		
 		if(doc.type.startsWith("video")) {
-			console.log("video");
-			res.render('video', { title: doc.name, fileurl: fileurl, filetype: doc.type});
+			res.render('video', { title: doc.name, fileurl: fileurl, filetype: doc.type, fileid: id});
 		} else if(doc.type.startsWith("image")) {
-			console.log("image " + JSON.stringify({ title: doc.name, fileurl: fileurl}));
-			res.render('image', { title: doc.name, fileurl: fileurl, filetype: doc.type});
+			res.render('image', { title: doc.name, fileurl: fileurl, filetype: doc.type, fileid: id});
 		} else {
 			console.log("other");
-			res.send(300);
+			res.download(doc.filePath, doc.name);
 		}
 	});
 };
@@ -121,7 +119,6 @@ exports.debug = function(req, res) {
 			id.push(docs[index]._id);
 		}
 		
-		//console.log(JSON.stringify(docs, null, '\t'));
 		res.render('debug', {ids : id});
 	});
 };
